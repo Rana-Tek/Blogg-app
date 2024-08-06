@@ -7,6 +7,6 @@ from .models import Post
 
 class PostModelViewSet(ModelViewSet):
     serializer_class = PostSerializer
-    query = Post.objects.all()[:6]
+    queryset = Post.objects.all()[:6]
     
     
