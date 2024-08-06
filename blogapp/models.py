@@ -8,6 +8,9 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     
+    class Meta:
+        ordering = ["-created"]
+    
     def __str__(self):
         return self.title
     def save(self, *args, **kwargs):

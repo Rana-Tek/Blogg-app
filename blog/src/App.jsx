@@ -9,6 +9,7 @@ import MainLayout from "./layouts/MainLayout"
 import HomePage from "./pages/HomePage"
 import AddBlogPage from "./pages/AddBlogPage"
 import PageNotFound from "./pages/PageNotFound"
+import DetailPage from "./pages/DetailPage"
 
 const App = () => {
   return(
@@ -16,6 +17,7 @@ const App = () => {
     <Route path="/" element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route path="add-blog" element={<AddBlogPage />} />
+      <Route path="/blogs/slug" element={<DetailPage/>}/>
       <Route path="*" element={<PageNotFound/>}/>
     </Route>
   </Routes>
