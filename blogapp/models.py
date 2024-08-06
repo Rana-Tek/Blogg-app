@@ -5,8 +5,11 @@ from django.utils.text import slugify
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     
+    def __str__(self):
+        return self.title
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
@@ -17,4 +20,4 @@ class Post(models.Model):
                 counter += 1
             self.slug = unique_slug
             
-        super().save(**args, **kwargs)
+        super().save(*args, **kwargs)
