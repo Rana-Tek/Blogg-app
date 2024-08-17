@@ -15,7 +15,7 @@ const DetailPage = () => {
     const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8008/blogs/${slug}`).then(res => {
+        axios.get(`http://127.0.0.1:8000/blogs/${slug}`).then(res => {
             console.log(res.data)
             setBlog(res.data)
             setTitle(res.data.title)
@@ -28,7 +28,7 @@ const DetailPage = () => {
         setShowModal(showModal => ! showModal)
     }
     const deleteBlog = () => {
-        axios.delete(`http://127.0.0.1:8008/blogs/${slug}/`).then(res => {
+        axios.delete(`http://127.0.0.1:8000/blogs/${slug}/`).then(res => {
             toast.success("Blog DELETED successfully")
         })
         .catch(err => console.log(err.message))
