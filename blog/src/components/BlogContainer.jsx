@@ -1,20 +1,31 @@
 import BlogCard from "./BlogCard"
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import axios from "axios"
 
+
 const BlogContainer = () => {
+const [blogs,setBlogs] =useState([])
+const [loading, setLoading] = useState(true)
+
    useEffect(() => {
     axios.get("http://127.0.0.1:8000/blogs/recent")
-    .then(res => console.log(res.data))
+    .then(res => {
+        console.log(res.data)
+        setBlogs(res.data)
+        setLoading(false)
+
+    }
+       
+
+    )
     .catch(err => console.log(err.message))
-   })
+   }, [])
     return(
         <div className="container mx-auto mt-8 mb-8 px-4 flex flex-wrap justify-evenly">
         
-              
-        <BlogCard/>  
-        <BlogCard/>  
-        <BlogCard/>  
+       {blogs.map((blog) =>    <BlogCard key={blog.id} blog={blog} />   )}       
+    
+        <BlogCard/>
         
         </div>
     )
