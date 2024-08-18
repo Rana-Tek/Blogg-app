@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
-const BlogCard = () => {
+const BlogCard = ({blog}) => {
     return(
         <div className="max-w-sm bg-white mb-6 border border-gray-200 rounded-lg shadow">
         <img className="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
         <div className="p-5">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight">JavaScript for Newbies</h5>
+            <h5 className="mb-2 text-2xl font-bold tracking-tight">{blog?.title} </h5>
+            
             <p className="mb-3 font-normal text-gray-700">
             JavaScript, a dynamic programming language, primarily used for web development, enables interactive web pages. It's client-side, meaning it runs on us'
             </p>

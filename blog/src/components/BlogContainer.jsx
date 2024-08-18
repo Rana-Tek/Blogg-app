@@ -25,7 +25,7 @@ const [loading, setLoading] = useState(true)
         
        {blogs.map((blog) =>    <BlogCard key={blog.id} blog={blog} />   )}       
     
-        <BlogCard/>
+    
         
         </div>
     )
