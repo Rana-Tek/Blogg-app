@@ -18,7 +18,7 @@ const App = () => {
     <Route path="/" element={<MainLayout />}>
       <Route index element={<HomePage />} />
       <Route path="add-blog" element={<AddBlogPage />} />
-      <Route path="/blogs/slug" element={<DetailPage/>}/>
+      <Route path="/blogs/:slug" element={<DetailPage/>}/>
       <Route path="/blogs/edit/slug" element={<EditBlogPage/>} />
       <Route path="*" element={<PageNotFound/>}/>
     </Route>
