@@ -1,6 +1,7 @@
 import BlogCard from "./BlogCard"
 import { useEffect,useState } from "react"
 import axios from "axios"
+import Spinner from "./Spinner"
 
 
 const BlogContainer = () => {
@@ -22,6 +23,8 @@ const [loading, setLoading] = useState(true)
    }, [])
     return(
         <div className="container mx-auto mt-8 mb-8 px-4 flex flex-wrap justify-evenly">
+        
+        <Spinner loading={loading}/>
         
        {blogs.map((blog) =>    <BlogCard key={blog.id} blog={blog} />   )}       
     
